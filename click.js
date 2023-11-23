@@ -1,5 +1,8 @@
 let startTime, endTime;
 let clickCount = 0;
+let data = "";
+let trial = [];
+
 
 function getRandomPosition() {
   const screenWidth = window.innerWidth;
@@ -11,7 +14,7 @@ function getRandomPosition() {
   return { x, y };
 }
 
-function showDot() {
+function renderDot() {
   const dot = document.getElementById('dot');
   const position = getRandomPosition();
 
@@ -22,29 +25,58 @@ function showDot() {
   startTime = new Date();
 }
 
-function hideDot() {
+function deleteDot() {
   const dot = document.getElementById('dot');
   dot.style.display = 'none';
+  //dot.parentNode.removeChild(dot);
 }
+
 
 function handleClick() {
   endTime = new Date();
+  const backButton = document.getElementById('backButton');
   const timeDiff = endTime - startTime; // in milliseconds
-  const accuracy = timeDiff < 1000 ? 'Perfect' : 'Good'; // Adjust the time threshold as needed
 
-  console.log(`Click ${clickCount + 1}: ${timeDiff}ms (${accuracy})`);
+  // console.log(`Click ${clickCount + 1}: ${timeDiff}ms (${accuracy})`);
 
   clickCount++;
 
-  if (clickCount < 10) {
-    hideDot();
-    setTimeout(showDot, 1000); // Adjust the delay between dots as needed
+  if (clickCount < 2) {
+    deleteDot();
+    renderDot();
+    // trial = timeDiff + "\n";
+    // data += trial;
+    trial.push(timeDiff);
   } else {
+    deleteDot();
+    // trial = timeDiff + "\n";
+    // data += trial;
+    trial.push(timeDiff);
+    data = trial.join("\n");
     console.log('Test completed!');
+    console.log(data);
+    backButton.style.display = 'inline-flex';
+    clickCount = 0;
+    saveAndDownload();
   }
+}
+function saveAndDownload() {
+  var blob = new Blob([data], { type: "text/plain" });
+  var link = document.createElement("a");
+  link.download = "myfile.txt";
+  link.href = URL.createObjectURL(blob);
+
+  // Append the link to the body
+  document.body.appendChild(link);
+
+  // Trigger a click on the link to start the download
+  link.click();
+
+  // Remove the link from the DOM
+  document.body.removeChild(link);
 }
 
 document.getElementById('dot').addEventListener('click', handleClick);
 
 // Start the test
-showDot();
+renderDot();

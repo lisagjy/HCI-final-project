@@ -4,10 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Click Test</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="dot"></div>
-  <script src="click.js"></script>
+<body class="main-page">
+    <div class = "prison">
+    <h1 class = 'title'>Hybrid Device Quantitative Study</h1>
+    <div id="instruction">
+        <p class="notice">
+            Welcome to our survey! <strong>PLEASE READ THESE CAREFULLY! </strong><br><br>
+            The following tests are designed to study how different input methods affect the way we complete the tasks.<br>
+            1.<br>
+            2.<br>
+            3.<br>
+            Please provide your name and agree to share data to proceed.</p>
+    </div>
+    <form action="#" method="post" id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <input type="checkbox" id="permission" name="permission">
+        <label for="permission">I agree to have my data used in the study and to have data file download to my computer.</label><br>
+
+        <button type="submit" value = "Submit" class="button-1" role="button" onclick="window.location.href='click.html'">Click Test</button>
+    </form>
+    
+</div>
 </body>
 </html>
