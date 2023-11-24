@@ -18,6 +18,12 @@
 .prison {
     max-width: 600px;
 }
+
+.test-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
   
 #dot {
     width: 50px;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Click Test</title>
+  <title>HCI Study</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="main-page">
@@ -18,15 +18,16 @@
             3.<br>
             Please provide your name and agree to share data to proceed.</p>
     </div>
-    <form action="#" method="post" id="userForm">
+    <form action="#" method="post" id="userForm" onsubmit="return navigate2Dashboard()">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br>
 
-        <input type="checkbox" id="permission" name="permission">
+        <input type="checkbox" id="permission" name="permission" required>
         <label for="permission">I agree to have my data used in the study and to have data file download to my computer.</label><br>
 
-        <button type="submit" value = "Submit" class="button-1" role="button" onclick="window.location.href='click.html'">Click Test</button>
+        <button type="submit" value = "Submit" class="button-1" role="button" >Click Test</button>
     </form>
+    <script src="main.js"></script>
     
 </div>
 </body>

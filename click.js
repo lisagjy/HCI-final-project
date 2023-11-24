@@ -61,9 +61,10 @@ function handleClick() {
   }
 }
 function saveAndDownload() {
+  const name = localStorage.getItem('userName');
   var blob = new Blob([data], { type: "text/plain" });
   var link = document.createElement("a");
-  link.download = "myfile.txt";
+  link.download = name + "_"+ "click.txt";
   link.href = URL.createObjectURL(blob);
 
   // Append the link to the body
