@@ -13,7 +13,12 @@ function navigate2Copypaste() {
 }
 
 function navigate2Scroll() {
-    window.location.href = 'click.html'
+    if (localStorage.getItem("scroll_input_order") == null) {
+        var order = [0, 1, 2];
+        shuffleArray(order);
+        localStorage.setItem("scroll_input_order", JSON.stringify(order));
+    }
+    window.location.href = 'scroll.html';
 }
 
 function navigate2ScrollType() {

@@ -3,7 +3,8 @@ let trial = [];
 let roundCount = 0;
 const totalRounds = 10;
 let trialData = [];
-let buttonCount = 130;
+let buttonCount = 50;
+let inputChosen;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -95,7 +96,7 @@ function saveAndDownload(data) {
     const name = localStorage.getItem('userName');
     var blob = new Blob([data], { type: "text/plain" });
     var link = document.createElement("a");
-    link.download = name + "_scroll.txt"; // Changed to reflect scroll test
+    link.download = name + "_" + inputChosen+"_scroll.txt";
     link.href = URL.createObjectURL(blob);
     document.body.appendChild(link);
     link.click();
@@ -103,8 +104,55 @@ function saveAndDownload(data) {
 }
 
 function startScrollTest() {
-  initializeTestEnvironment();
-  roundCount = 0; // Reset the round count
-  startTime = new Date(); // Set startTime before generating buttons
-  generateButtons();
+  const val = validateForm();
+  if(val){
+    initializeTestEnvironment();
+    roundCount = 0; // Reset the round count
+    startTime = new Date(); // Set startTime before generating buttons
+    generateButtons();
+  }
+  else{
+    alert('Please select an input method');
+  }
 }
+
+function renderInputMethods() {
+  //check for the order
+  var order = JSON.parse(localStorage.getItem("scroll_input_order"));
+  console.log(order);
+  var options = ['Mouse','TouchScreen','TouchPad'];
+  var optionsList = document.getElementById('scroll_inputList');
+  var title = document.createElement('label');
+  title.textContent = "Entry Method:";
+  optionsList.appendChild(title);
+
+  order.forEach(function (option) {
+    console.log("Current option:", option);
+      var label = document.createElement('label');
+      var input = document.createElement('input');
+
+      input.type = 'radio';
+      input.name = 'input-method';
+      input.value = options[option];
+      input.required = true;
+      label.textContent = options[option];
+      label.insertBefore(input, label.firstChild);
+      optionsList.appendChild(label);
+  });
+}
+
+function validateForm() {
+  var inputMethods = document.getElementsByName('input-method');
+  var isChecked = false;
+
+  for (var i = 0; i < inputMethods.length; i++) {
+    if (inputMethods[i].checked) {
+      isChecked = true;
+      inputChosen = inputMethods[i].value;
+      break;
+    }
+  }
+  return isChecked;
+}
+
+window.onload = renderInputMethods;
