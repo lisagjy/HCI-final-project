@@ -107,7 +107,7 @@ $('#submit-btn').on('click', function () {
 // })
 
 function downloadFile() {
-  const filename = localStorage.getItem('userName') + "_" + "copyPaste.txt";
+  const filename = localStorage.getItem('userName') + "_" + localStorage.getItem('input_method') + "_copyPaste.txt";
   let content = ''
   for (let i = 0; i < completionTime.length; i++) {
     content += completionTime[i] + ' ' + ans[i] + '\n'
