@@ -3,7 +3,7 @@ function navigate2Dashboard() {
     const form = document.getElementById('userForm');
     localStorage.removeItem('click_input_order');
     if (form.checkValidity){
-        let order = [1,2,3,4];
+        let order = [0,1,2,3];
         shuffleArray(order);
         localStorage.setItem('testOrder',JSON.stringify(order));
         const userName = document.getElementById('name').value;

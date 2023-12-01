@@ -11,21 +11,44 @@ function navigate2Click(){
 function navigate2Copypaste(){
     window.location.href='copyPaste.html'
 }
+
+function navigate2Scroll(){
+    window.location.href='click.html'
+}
+
+function navigate2ScrollType(){
+}
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-  }
-
-const order = JSON.parse(localStorage.getItem("testOrder"));
-const listContainer = document.getElementById("order-container");
-const text = document.createElement("h4");
-
-if (order.length > 0) {
-    text.textContent = "Please do the tests in the following order: "+order;
-    listContainer.appendChild(text);
-} else {
-    // If the list is empty, display a message or handle it accordingly
-    alert("no order given");
 }
+
+function renderTests(){
+    //<button class="button-89" role="button" id="backButton" onclick="navigate2Click()">TEST 1</button>
+    const orders = JSON.parse(localStorage.getItem("testOrder"));
+    const listContainer = document.getElementById("tests-container");
+    const testLable = ['Test 1','Test 2','Test 3','Test 4']
+    const testsOptionsFunction = [navigate2Click,navigate2Copypaste,navigate2Scroll,navigate2ScrollType]
+    console.log(orders);
+    if (orders.length > 0) {
+        console.log("not empty");
+        orders.forEach(function(order,index){
+            console.log(order);
+            var button = document.createElement('button');
+            button.className = 'button-89';
+            button.role = 'button';
+            // button.id = testsOptions[order];
+            button.onclick = testsOptionsFunction[order];
+            button.textContent = testLable[index];
+            listContainer.appendChild(button);
+
+        });
+    } else {
+        // If the list is empty, display a message or handle it accordingly
+        alert("no order given");
+    }
+}
+
+renderTests();

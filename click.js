@@ -143,8 +143,8 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
-
+deleteDot();
 window.onload = renderInputMethods;
 
 // document.getElementById('dot').addEventListener('click', handleClick);
-deleteDot();
+
