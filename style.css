@@ -26,6 +26,24 @@
   justify-content: space-between;
 }
 
+.scroll-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
 #dot {
   width: 50px;
   height: 50px;
@@ -182,4 +200,12 @@
 
 .title {
   text-align: center;
+}
+
+.redButton {
+  background-color: red; /* Replace with your desired color for red button */
+}
+
+.greenButton {
+  background-color: green; /* Replace with your desired color for red button */
 }

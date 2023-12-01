@@ -13,7 +13,7 @@ function navigate2Copypaste(){
 }
 
 function navigate2Scroll(){
-    window.location.href='click.html'
+    window.location.href='scroll.html'
 }
 
 function navigate2ScrollType(){
