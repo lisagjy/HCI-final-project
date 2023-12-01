@@ -2,7 +2,32 @@ let startTime, endTime;
 let clickCount = 0;
 let data = "";
 let trial = [];
+let inputChosen;
 
+function renderInputMethods() {
+  //check for the order
+  var order = JSON.parse(localStorage.getItem("click_input_order"));
+  console.log(order);
+  var options = ['Mouse','TouchScreen','TouchPad'];
+  var optionsList = document.getElementById('click_inputList');
+  var title = document.createElement('label');
+  title.textContent = "Entry Method:";
+  optionsList.appendChild(title);
+
+  order.forEach(function (option,index) {
+    console.log("Current option:", option);
+      var label = document.createElement('label');
+      var input = document.createElement('input');
+
+      input.type = 'radio';
+      input.name = 'input-method';
+      input.value = options[option];
+      input.required = true;
+      label.textContent = options[option];
+      label.insertBefore(input, label.firstChild);
+      optionsList.appendChild(label);
+  });
+}
 
 function getRandomPosition() {
   const screenWidth = window.innerWidth;
@@ -78,7 +103,7 @@ function saveAndDownload() {
   const name = localStorage.getItem('userName');
   var blob = new Blob([data], { type: "text/plain" });
   var link = document.createElement("a");
-  link.download = name + "_"+ "click.txt";
+  link.download = name + "_"+inputChosen+"_"+ "click.txt";
   link.href = URL.createObjectURL(blob);
   document.body.appendChild(link);
   link.click();
@@ -86,10 +111,40 @@ function saveAndDownload() {
 }
 
 function startClickTest(){
-  document.body.removeChild(document.getElementById("click-instruction"));
-  renderDot();
-  document.addEventListener('click', handleClick)
+  const val = validateForm();
+  if(val){
+    document.body.removeChild(document.getElementById("click-instruction"));
+    renderDot();
+    document.addEventListener('click', handleClick);
+  }
+  else{
+    alert('Please select an input method');
+  }
 }
+
+function validateForm() {
+  var inputMethods = document.getElementsByName('input-method');
+  var isChecked = false;
+
+  for (var i = 0; i < inputMethods.length; i++) {
+    if (inputMethods[i].checked) {
+      isChecked = true;
+      inputChosen = inputMethods[i].value;
+      break;
+    }
+  }
+  return isChecked;
+}
+
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+window.onload = renderInputMethods;
 
 // document.getElementById('dot').addEventListener('click', handleClick);
 deleteDot();

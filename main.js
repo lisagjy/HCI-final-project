@@ -1,6 +1,7 @@
 
 function navigate2Dashboard() {
     const form = document.getElementById('userForm');
+    localStorage.removeItem('click_input_order');
     if (form.checkValidity){
         let order = [1,2,3,4];
         shuffleArray(order);

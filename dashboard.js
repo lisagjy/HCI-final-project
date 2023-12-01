@@ -1,6 +1,11 @@
 
 function navigate2Click(){
     window.location.href='click.html'
+    if (localStorage.getItem("click_input_order") == null){
+        var order = [0,1,2];
+        shuffleArray(order);
+        localStorage.setItem("click_input_order",JSON.stringify(order));
+    }
 }
 
 function navigate2Copypaste(){
