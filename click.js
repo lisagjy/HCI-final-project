@@ -14,7 +14,7 @@ function renderInputMethods() {
   title.textContent = "Entry Method:";
   optionsList.appendChild(title);
 
-  order.forEach(function (option,index) {
+  order.forEach(function (option) {
     console.log("Current option:", option);
       var label = document.createElement('label');
       var input = document.createElement('input');
