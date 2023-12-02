@@ -3,6 +3,7 @@ let clickCount = 0;
 let data = "";
 let trial = [];
 let inputChosen;
+let totalAmount = 10;
 
 function renderInputMethods() {
   //check for the order
@@ -75,7 +76,7 @@ function handleClick(event) {
     return;
   }
   clickCount++;
-  if (clickCount < 2) {
+  if (clickCount < totalAmount) {
     deleteDot();
     renderDot();
     const accuracy = Math.max(0,1-distance/(dot_rect.width/2));
