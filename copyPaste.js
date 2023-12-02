@@ -75,7 +75,7 @@ $('#submit-btn').on('click', function () {
 
   $('#textarea').val('');
 
-  if (trialNum == 2) {
+  if (trialNum == 5) {
     downloadFile()
     $('.alert-warning').hide()
     $(".alert-primary").show()
