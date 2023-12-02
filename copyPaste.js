@@ -6,16 +6,16 @@ const listContainer = $('#listContainer')
 let completionTime = []
 let ans = []
 const showList = [
-  'This is test 1.',
-  'This is test 2.',
-  'This is test 3.',
-  'This is test 4.',
-  'This is test 5.',
-  'This is test 6.',
-  'This is test 7.',
-  'This is test 8.',
-  'This is test 9.',
-  'This is test 10.'
+  'The curious cat explored the mysterious garden under the moonlight.',
+  'As the sun set, a gentle breeze whispered through the ancient trees.',
+  'In the bustling city, a solitary musician played a haunting melody.',
+  'Lost in thought, she gazed at the distant horizon, pondering life mysteries.',
+  'The aroma of freshly brewed coffee filled the cozy cafe on a rainy afternoon.',
+  'A burst of laughter echoed through the room as friends gathered for a celebration.',
+  'The old bookshop, with its creaky wooden floors, held stories from a bygone era.',
+  'Bright stars adorned the night sky, creating a celestial masterpiece.',
+  'On the peaceful riverbank, a solitary boat drifted with the gentle current.',
+  'In the vibrant market, vendors showcased a kaleidoscope of colors and flavors.'
 ]
 const numberToText = {
   0: 'first',

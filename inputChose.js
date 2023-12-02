@@ -29,6 +29,7 @@ function renderInputMethods() {
 
     input.type = 'radio';
     input.className = 'input-method';
+    input.name = 'input-method';
     input.value = options[option];
     input.required = true;
     label.textContent = options[option];
