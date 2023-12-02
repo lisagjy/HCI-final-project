@@ -22,7 +22,7 @@ function navigate2Scroll() {
 }
 
 function navigate2ScrollType() {
-    window.location.href = 'scrolltype.html'
+    window.location.href = 'scrollType.html'
     if (localStorage.getItem("scrolltype_input_order") == null) {
         var order = [0, 1, 2];
         shuffleArray(order);
