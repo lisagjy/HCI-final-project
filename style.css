@@ -203,9 +203,21 @@
 }
 
 .redButton {
-  background-color: red; /* Replace with your desired color for red button */
+  background-color: rgb(255, 28, 28)/* Replace with your desired color for red button */
 }
 
 .greenButton {
-  background-color: green; /* Replace with your desired color for red button */
+  background-color: rgb(84, 207, 84); /* Replace with your desired color for red button */
+}
+
+.alert {
+  padding: 10px;
+  background-color: #288fbf; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
 }
