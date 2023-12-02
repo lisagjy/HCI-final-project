@@ -9,16 +9,22 @@
 <body class="test-page">
   <div id="click-instruction" class="prison">
     <p class="notice">
-      Here is some quality instruction
+      <strong>In this test, you will be doing the following: </strong><br><br>
+      1. A <span style="color: blue;">blue</span> dot will appear at a random position on the screen.<br>
+      2. Your task is to click the dot; once you do that, the dot will disappear, and a new dot will show up randomly.<br>
+      3. This process will repeat several times, and the test will automatically stop. A data file will then be downloaded. <br>
+      4. You can then click 'Back' to choose another input method or go back to dashboard.<br>
+      5. Please repeat the test <strong>in the given order </strong>for all input methods, each for once.<br>
     </p>
     <form id="click_inputForm">
       <p id="click_inputList" display='flex' flex-direction='column'>
       </p>
     </form>
     <button class="button-1" role="button" id="startClickButton" onclick="startClickTest()">START</button>
+    <button class="button-1" role="button" id="back2DashboardButton" onclick="window.location.href = 'dashboard.html'">BACK TO DASH</button>
   </div>
   <div id="dot"></div>
-  <button class="button-6" role="button" id="backButton" onclick="window.location.href='dashboard.html'">BACK</button>
+  <button class="button-6" role="button" id="backButton" onclick="window.location.href = 'click.html'">BACK</button>
   <script src="click.js"></script>
 
 </body>

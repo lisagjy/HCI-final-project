@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>ScrollType Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="scroll-page">
+    <div class="alert" id="helpAlert">
+        Please scroll to the bottom to type in the text.
+      </div>
+    <div id="instruction" class="prison">
+      <p class="notice">
+        <strong>In this test, you will be doing the following: </strong><br><br>
+        1. The page will display a column of boxes. One of them will be <span style="color: red;">red</span>, the others <span style="color: green;">green</span>.<br>
+        2. You will need to scroll up and down to find and click the <span style="color: red;">red</span> box.<br>
+        <strong>3.</strong> Everytime you click the red box, you will need to scroll to the Bottom of the page, and be given a word. You will need to type the word <strong>BACKWARDS</strong> in the given text box, and hit 'Next'.<br>
+        4. This 1 box + 1 type process will repeat several times, and the test will automatically stop. A data file will then be downloaded. <br>
+        5. You can then click 'Back' to choose another input method or go back to dashboard.<br>
+        6. Please repeat the test <strong>in the given order </strong>for all input methods, each for once.<br>
+      </p>
+      <p id="scroll_inputList" display='flex' flex-direction='column'>
+      </p>
+      <button class="button-1" role="button" id="startScrollButton" onclick="startScrollTest()">START</button>
+      <button class="button-1" role="button" id="back2DashboardButton" onclick="window.location.href = 'dashboard.html'">BACK TO DASH</button>
+    </div>
+    
+    <!-- Test Container for scrolling and buttons -->
+    <div id="testContainer" class="scroll-container">
+      <!-- Buttons will be added dynamically here -->
+    </div>
+    <div id="typeContainer" class="scroll-container" style="display: none;">
+        <p class='notice'>Type the following word <strong>backwards</strong> in the box below</p>
+        <p id="sampleText"></p>
+        <input type="text" id="userInput">
+        <p id="result"></p>
+        <button class="button-1" onclick="handleNext()">Next</button>
+    </div>
+
+    <button class="button-6" role="button" id="backButton" onclick="window.location.href='scrollType.html'">BACK</button>
+    <script src="scrollType.js"></script>
+  
+  </body>
+</html>
