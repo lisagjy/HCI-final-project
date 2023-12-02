@@ -22,6 +22,12 @@ function navigate2Scroll() {
 }
 
 function navigate2ScrollType() {
+    window.location.href = 'scrolltype.html'
+    if (localStorage.getItem("scrolltype_input_order") == null) {
+        var order = [0, 1, 2];
+        shuffleArray(order);
+        localStorage.setItem("scrolltype_input_order", JSON.stringify(order));
+    }
 }
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {

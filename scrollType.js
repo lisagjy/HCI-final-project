@@ -147,7 +147,7 @@ function saveAndDownload(data) {
     const name = localStorage.getItem('userName');
     var blob = new Blob([data], { type: "text/plain" });
     var link = document.createElement("a");
-    link.download = name + "_" + inputChosen+"_scroll.txt";
+    link.download = name + "_" + inputChosen+"_scrolltype.txt";
     link.href = URL.createObjectURL(blob);
     document.body.appendChild(link);
     link.click();
@@ -171,7 +171,7 @@ function startScrollTest() {
 
 function renderInputMethods() {
   //check for the order
-  var order = JSON.parse(localStorage.getItem("scroll_input_order"));
+  var order = JSON.parse(localStorage.getItem("scrolltype_input_order"));
   console.log(order);
   var options = ['Mouse','TouchScreen','TouchPad'];
   var optionsList = document.getElementById('scroll_inputList');
